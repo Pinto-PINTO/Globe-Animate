@@ -1,9 +1,5 @@
 # Three.js Basics
-Project on the way...
-<!-- Courtesy of Bruno Simon of https://threejs-journey.xyz/ -->
-
-<!-- ## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands: -->
+Created a Motion Project.
+Check it out [Globe] (https://silly-joliot-18f3e7.netlify.app)
 
 
