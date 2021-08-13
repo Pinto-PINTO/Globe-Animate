@@ -1,5 +1,6 @@
-# Three.js Basics
-Created a Motion Project.
-Check it out [Globe] (https://silly-joliot-18f3e7.netlify.app)
+<h1 align="center">print("Three.js Starter Project")</h1>
 
+## Mini Motion Project
+Demo: [Globe][website]
 
+[website]: https://silly-joliot-18f3e7.netlify.app
