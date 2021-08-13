@@ -40,16 +40,49 @@ pointLight.position.y = 3
 pointLight.position.z = 4
 scene.add(pointLight)
 
+
+// Light 2
+
 const pointLight2 = new THREE.PointLight(0xff0000, 0.1) // Parameters color and intensity respectively
-pointLight2.position.set(1,1,1) // Setting positions of all three x,y,z axis respectively
-pointLight2.intensity = 1
+pointLight2.position.set(-1.86,1,-1.65) // Setting positions of all three x,y,z axis respectively
+pointLight2.intensity = 10
 scene.add(pointLight2)
 
+const light2 = gui.addFolder('Light 2')  // Creating a gui folder
 // Adding gui to change the positioning of the light
-gui.add(pointLight2.position, 'x').min(-6).max(6).step(0.01) // [step() = Slider in gui which increments the position by 0.01]
-gui.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
-gui.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
-gui.add(pointLight2, 'intensity').min(0).max(10).step(0.01) // Gui to change the intensity
+light2.add(pointLight2.position, 'x').min(-6).max(6).step(0.01) // [step() = Slider in gui which increments the position by 0.01]
+light2.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
+light2.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
+light2.add(pointLight2, 'intensity').min(0).max(10).step(0.01) // Gui to change the intensity
+
+// Point Light Helper
+const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1) // Parameters are light and size of light respectively
+scene.add(pointLightHelper)
+
+
+// Light 3
+
+const pointLight3 = new THREE.PointLight(0xff0000, 0.1) 
+pointLight3.position.set(1.60,-2.11,-1.85) 
+pointLight3.intensity = 10
+
+scene.add(pointLight3)
+
+const light3 = gui.addFolder('Light 3')
+
+light3.add(pointLight3.position, 'x').min(-6).max(6).step(0.01)
+light3.add(pointLight3.position, 'y').min(-3).max(3).step(0.01)
+light3.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
+light3.add(pointLight3, 'intensity').min(0).max(10).step(0.01) 
+
+// Controlling color of Light 3 in gui
+
+
+const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1) 
+scene.add(pointLightHelper2)
+
+
+
 
 /**
  * Sizes
