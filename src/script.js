@@ -13,7 +13,7 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Objects [Body]
-const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
+const geometry = new THREE.SphereBufferGeometry(0.5, 64, 64) // The parameters are radius, width and height respectively
 
 // Materials [Skin]
 
