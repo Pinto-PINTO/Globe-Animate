@@ -40,6 +40,17 @@ pointLight.position.y = 3
 pointLight.position.z = 4
 scene.add(pointLight)
 
+const pointLight2 = new THREE.PointLight(0xff0000, 0.1) // Parameters color and intensity respectively
+pointLight2.position.set(1,1,1) // Setting positions of all three x,y,z axis respectively
+pointLight2.intensity = 1
+scene.add(pointLight2)
+
+// Adding gui to change the positioning of the light
+gui.add(pointLight2.position, 'x').min(-6).max(6).step(0.01) // [step() = Slider in gui which increments the position by 0.01]
+gui.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
+gui.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
+gui.add(pointLight2, 'intensity').min(0).max(10).step(0.01) // Gui to change the intensity
+
 /**
  * Sizes
  */
