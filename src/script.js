@@ -2,6 +2,7 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'  // The adjust control window
+import { PointLight } from 'three'
 
 
 // Texture Loader [Loads textures properly and fast]
@@ -55,15 +56,15 @@ light2.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
 light2.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
 light2.add(pointLight2, 'intensity').min(0).max(10).step(0.01) // Gui to change the intensity
 
-// Point Light Helper
-const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1) // Parameters are light and size of light respectively
-scene.add(pointLightHelper)
+// Point Light Helper [Comment the gui after finalizing the positioning and colors]
+// const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1) // Parameters are light and size of light respectively
+// scene.add(pointLightHelper)
 
 
 // Light 3
 
-const pointLight3 = new THREE.PointLight(0xff0000, 0.1) 
-pointLight3.position.set(1.60,-2.11,-1.85) 
+const pointLight3 = new THREE.PointLight(0x109cff, 0.1) 
+pointLight3.position.set(2.13,-3,-1.98) 
 pointLight3.intensity = 10
 
 scene.add(pointLight3)
@@ -76,10 +77,20 @@ light3.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
 light3.add(pointLight3, 'intensity').min(0).max(10).step(0.01) 
 
 // Controlling color of Light 3 in gui
+// 1) Create object with property color
+const light3color = {
+    color: 0xff0000
+}
+
+// 2) Passing the object
+light3.addColor(light3color, 'color') // Parameters target object and property respectively
+    .onChange(() => {
+        pointLight3.color.set(light3color.color)
+    })
 
 
-const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1) 
-scene.add(pointLightHelper2)
+// const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1) 
+// scene.add(pointLightHelper2)
 
 
 
@@ -134,6 +145,11 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 /**
  * Animate
  */
+
+// Adding mouse position effects
+
+
+
 
 const clock = new THREE.Clock()
 
