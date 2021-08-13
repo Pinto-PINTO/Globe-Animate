@@ -44,7 +44,7 @@ scene.add(pointLight)
 
 // Light 2
 
-const pointLight2 = new THREE.PointLight(0xff0000, 0.1) // Parameters color and intensity respectively
+const pointLight2 = new THREE.PointLight(0xdb0000, 0.1) // Parameters color and intensity respectively
 pointLight2.position.set(-1.86,1,-1.65) // Setting positions of all three x,y,z axis respectively
 pointLight2.intensity = 10
 scene.add(pointLight2)
@@ -184,7 +184,8 @@ function onDocumentMouseMove(event){
 
 // 2. Parallax Like Effect
 const updateSphere = (event) => {
-    sphere.position.y = window.scrollY * .001
+    sphere.position.y = window.scrollY * .001  // When scrolling the sphere moves up slowly
+    sphere.position.z = window.scrollY * .001  // When scrolling the sphere expands slowly
 }
 
 window.addEventListener('scroll', updateSphere)
