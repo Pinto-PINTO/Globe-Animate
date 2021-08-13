@@ -3,6 +3,11 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'  // The adjust control window
 
+
+// Texture Loader [Loads textures properly and fast]
+const textureLoader = new THREE.TextureLoader()
+const normalTexture = textureLoader.load('/textures/circle-texture.png') // Importing texture to variable
+
 // Debug
 const gui = new dat.GUI()
 
@@ -15,10 +20,13 @@ const scene = new THREE.Scene()
 // Objects [Body]
 const geometry = new THREE.SphereBufferGeometry(0.5, 64, 64) // The parameters are radius, width and height respectively
 
-// Materials [Skin]
+// Materials [Skin] or [Textures]
 
-const material = new THREE.MeshBasicMaterial()
-material.color = new THREE.Color(0xff0000)
+const material = new THREE.MeshStandardMaterial() // Add roughness, metalness, etc. to the object
+material.roughness = 0.2
+material.metalness = 0.7
+material.normalMap = normalTexture;  // Applying the imported texture(as Normal Map) in line 9 to the material
+material.color = new THREE.Color(0x292929)
 
 // Mesh [Combines body and skin]
 const sphere = new THREE.Mesh(geometry,material)
@@ -73,7 +81,8 @@ scene.add(camera)
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
+    canvas: canvas,
+    alpha: true // Makes the background transparent
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
