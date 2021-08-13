@@ -4,6 +4,6 @@
 - Not mobile friendly (Better if viewed in large screen)
 <br>
 
-Check it out: [Menuka Pinto][website]
+Check it out: [Globe][website]
 
 [website]: https://silly-joliot-18f3e7.netlify.app
