@@ -182,9 +182,14 @@ function onDocumentMouseMove(event){
 // End of Adding mouse movement effects 
 
 
-// 2. 
+// 2. Parallax Like Effect
+const updateSphere = (event) => {
+    sphere.position.y = window.scrollY * .001
+}
 
-// 
+window.addEventListener('scroll', updateSphere)
+
+// End of Parallax Like Effect
 
 
 const clock = new THREE.Clock()
@@ -203,7 +208,7 @@ const tick = () =>
     // How the Object Rotates
     sphere.rotation.x += .05 * (targetY - sphere.rotation.x) 
     sphere.rotation.y += .5 * (targetX - sphere.rotation.y)
-    sphere.rotation.z += .05 * (targetY - sphere.rotation.x)
+    sphere.position.z += .05 * (targetY - sphere.rotation.x)
 
     // Update Orbital Controls
     // controls.update()
