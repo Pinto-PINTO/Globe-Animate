@@ -146,9 +146,24 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * Animate
  */
 
-// Adding mouse position effects
+// Adding mouse movement effects 
+document.addEventListener('mousemove', onDocumentMouseMove)
 
+let mouseX = 0
+let mouseY = 0
 
+let targetX = 0
+let targetY = 0
+
+const windowHalfX = window.innerWidth / 2; // The window/display size is obtained and divided by 2
+const windowHalfY = window.innerHeight / 2;
+
+function onDocumentMouseMove(event){
+    mouseX = (event.clientX - windowHalfX) // clientX is the X position of the mouse when moving it
+    mouseY = (event.clientY - windowHalfY) // Only triggered when the mouse pointer comes to the position in mouseX and mouseY
+}
+
+// End of Adding mouse movement effects 
 
 
 const clock = new THREE.Clock()
@@ -156,10 +171,18 @@ const clock = new THREE.Clock()
 const tick = () =>
 {
 
+    targetX = mouseX * .001
+    targetY = mouseY * .001
+
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
-    sphere.rotation.y = .5 * elapsedTime
+    sphere.rotation.y = .5 * elapsedTime  // This is why the sphere/object spins continuously
+
+    // How the Object Rotates
+    sphere.rotation.x += .05 * (targetY - sphere.rotation.x) 
+    sphere.rotation.y += .5 * (targetX - sphere.rotation.y)
+    sphere.rotation.z += .05 * (targetY - sphere.rotation.x)
 
     // Update Orbital Controls
     // controls.update()
