@@ -49,12 +49,18 @@ pointLight2.position.set(-1.86,1,-1.65) // Setting positions of all three x,y,z 
 pointLight2.intensity = 10
 scene.add(pointLight2)
 
-const light2 = gui.addFolder('Light 2')  // Creating a gui folder
+
+// ----------Comment After adjusting the gui----------
+
+// const light2 = gui.addFolder('Light 2')  // Creating a gui folder
 // Adding gui to change the positioning of the light
-light2.add(pointLight2.position, 'x').min(-6).max(6).step(0.01) // [step() = Slider in gui which increments the position by 0.01]
-light2.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
-light2.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
-light2.add(pointLight2, 'intensity').min(0).max(10).step(0.01) // Gui to change the intensity
+// light2.add(pointLight2.position, 'x').min(-6).max(6).step(0.01) // [step() = Slider in gui which increments the position by 0.01]
+// light2.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
+// light2.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
+// light2.add(pointLight2, 'intensity').min(0).max(10).step(0.01) // Gui to change the intensity
+
+// ----------Comment After adjusting the gui----------
+
 
 // Point Light Helper [Comment the gui after finalizing the positioning and colors]
 // const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1) // Parameters are light and size of light respectively
@@ -69,12 +75,19 @@ pointLight3.intensity = 10
 
 scene.add(pointLight3)
 
-const light3 = gui.addFolder('Light 3')
 
-light3.add(pointLight3.position, 'x').min(-6).max(6).step(0.01)
-light3.add(pointLight3.position, 'y').min(-3).max(3).step(0.01)
-light3.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
-light3.add(pointLight3, 'intensity').min(0).max(10).step(0.01) 
+// ----------Comment After adjusting the gui----------
+
+// const light3 = gui.addFolder('Light 3')
+
+// light3.add(pointLight3.position, 'x').min(-6).max(6).step(0.01)
+// light3.add(pointLight3.position, 'y').min(-3).max(3).step(0.01)
+// light3.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
+// light3.add(pointLight3, 'intensity').min(0).max(10).step(0.01) 
+
+// ----------Comment After adjusting the gui----------
+
+
 
 // Controlling color of Light 3 in gui
 // 1) Create object with property color
@@ -83,11 +96,14 @@ const light3color = {
 }
 
 // 2) Passing the object
-light3.addColor(light3color, 'color') // Parameters target object and property respectively
-    .onChange(() => {
-        pointLight3.color.set(light3color.color)
-    })
+// Parameters target object and property respectively
 
+// ----------Comment After adjusting the gui----------
+// light3.addColor(light3color, 'color') 
+//     .onChange(() => {
+//         pointLight3.color.set(light3color.color)
+//     })
+// ----------Comment After adjusting the gui----------
 
 // const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1) 
 // scene.add(pointLightHelper2)
@@ -146,7 +162,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * Animate
  */
 
-// Adding mouse movement effects 
+// 1. Adding mouse movement on x,y,z axis effects 
 document.addEventListener('mousemove', onDocumentMouseMove)
 
 let mouseX = 0
@@ -164,6 +180,11 @@ function onDocumentMouseMove(event){
 }
 
 // End of Adding mouse movement effects 
+
+
+// 2. 
+
+// 
 
 
 const clock = new THREE.Clock()
